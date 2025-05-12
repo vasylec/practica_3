@@ -1,9 +1,13 @@
-STAGIUL DE PRACTICĂ, ANUL III,
-ADMINISTRAREA BAZELOR DE DATE
-PRACTICA TEHNOLOGICĂ
-SARCINI INDIVIDUALE PENTRU ELEVI
-COORDONATORUL STAGIULUI DE PRACTICĂ: PROF. COVALI EUGENIA
-8.TELECOMUNICAȚIE. Informaţiile despre telefoanele şi abonaţii unei reţele
+      STAGIUL DE PRACTICĂ, ANUL III,
+      ADMINISTRAREA BAZELOR DE DATE
+      PRACTICA TEHNOLOGICĂ
+      SARCINI INDIVIDUALE PENTRU ELEVI
+      COORDONATORUL STAGIULUI DE PRACTICĂ: PROF. COVALI EUGENIA
+
+
+      8.TELECOMUNICAȚIE. 
+
+Informaţiile despre telefoanele şi abonaţii unei reţele
 de telefoane fixe sunt stocate într-o bază de date.
 Elaboraţi o bază de date, gestiunea căreia se va realiza dintr-o aplicaţie vizuală.
 În dependență de tematică se vor specifica criteriile de integritate pentru baza
