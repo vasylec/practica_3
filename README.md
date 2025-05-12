@@ -5,7 +5,7 @@
       COORDONATORUL STAGIULUI DE PRACTICĂ: PROF. COVALI EUGENIA
 
 
-      8.TELECOMUNICAȚIE. 
+8.TELECOMUNICAȚIE. 
 
 Informaţiile despre telefoanele şi abonaţii unei reţele
 de telefoane fixe sunt stocate într-o bază de date.
