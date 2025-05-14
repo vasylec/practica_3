@@ -78,5 +78,19 @@ INSERT INTO Facturi (serviciuID, dataEmitere, suma, scadenta, platita) VALUES
 
 
 
+SELECT * FROM Angajati
 
+
+
+
+INSERT INTO Angajati VALUES
+('Cozma', 'Vasile', '1234567890123', 'vcozma06@gmail.com', 'Stefan cel Mare 14/2 56', 'Administrator', 'Admin', '12345678')
+
+
+INSERT INTO Angajati VALUES
+('Cioban', 'Nicolae', '1234567890120', 'cioban@gmail.com', 'Dacia 15/8 36', 'Operator', 'colea', '87654321')
+
+
+
+SELECT * FROM Angajati
 

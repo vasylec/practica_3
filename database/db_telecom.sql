@@ -11,10 +11,12 @@ CREATE TABLE Angajati (
     idnp NVARCHAR(13) NOT NULL UNIQUE,
     email NVARCHAR(100) NOT NULL UNIQUE,
     adresa NVARCHAR(255) NOT NULL,
+	functie NVARCHAR(255) NOT NULL,
     
 	username NVARCHAR(100) NOT NULL,
-	parola NVARCHAR(100) NOT NULL CHECK(LEN(parola) > 8),
+	parola NVARCHAR(100) NOT NULL CHECK(LEN(parola) >= 8),
 );
+
 
 CREATE TABLE Clienti (
     id INT IDENTITY(1,1) PRIMARY KEY,
