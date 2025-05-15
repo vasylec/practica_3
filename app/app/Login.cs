@@ -16,7 +16,6 @@ namespace app
 {
     public partial class Login: Form
     {
-        private bool parolaVizibila = false;
         private List<string> usernames = new List<string>();
         private List<string> passwords = new List<string>();
 
@@ -49,7 +48,20 @@ namespace app
             textBox2.UseSystemPasswordChar = true;
             button2.Image = Properties.Resources.view;
             Login_Load();
+            textBox1.KeyDown += textBox_KeyDown;
+            textBox2.KeyDown += textBox_KeyDown;
         }
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            label3.Visible = false;
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                button1_Click(sender, e);
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -59,12 +71,14 @@ namespace app
                 if (textBox1.Text == usernames[i] && textBox2.Text == passwords[i])
                 {
                     logged = true;
-                    MessageBox.Show("Login successful!");
+                    Main main = new Main(this);
+                    main.Show();
+                    this.Hide();
                 }
             }
             if(logged == false)
             {
-                MessageBox.Show("Login failed! Please check your username and password.");
+                label3.Visible = true;
             }
         }
 
