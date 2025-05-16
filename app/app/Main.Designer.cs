@@ -73,7 +73,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 557);
+            this.panel1.Size = new System.Drawing.Size(250, 636);
             this.panel1.TabIndex = 0;
             // 
             // label4
@@ -81,7 +81,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Comic Sans MS", 14F);
-            this.label4.Location = new System.Drawing.Point(62, 347);
+            this.label4.Location = new System.Drawing.Point(62, 387);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 33);
             this.label4.TabIndex = 14;
@@ -115,7 +115,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Comic Sans MS", 14F);
-            this.label3.Location = new System.Drawing.Point(61, 275);
+            this.label3.Location = new System.Drawing.Point(61, 315);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 33);
             this.label3.TabIndex = 13;
@@ -128,7 +128,7 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox4.Image = global::app.Properties.Resources.previous;
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 483);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 562);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(63, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -143,7 +143,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 14F);
-            this.label2.Location = new System.Drawing.Point(62, 203);
+            this.label2.Location = new System.Drawing.Point(62, 243);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 33);
             this.label2.TabIndex = 12;
@@ -157,7 +157,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox1.Image = global::app.Properties.Resources.multiple_users_silhouette;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 203);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 243);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(36, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,7 +171,7 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox3.Image = global::app.Properties.Resources.import_export;
             this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(25, 337);
+            this.pictureBox3.Location = new System.Drawing.Point(25, 377);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(36, 53);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -185,7 +185,7 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox2.Image = global::app.Properties.Resources.report__1_;
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 268);
+            this.pictureBox2.Location = new System.Drawing.Point(23, 308);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 47);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +210,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(297, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(250, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -223,14 +223,14 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(608, 557);
-            this.splitContainer1.SplitterDistance = 195;
+            this.splitContainer1.Size = new System.Drawing.Size(675, 636);
+            this.splitContainer1.SplitterDistance = 207;
             this.splitContainer1.TabIndex = 4;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(533, 3);
+            this.button2.Location = new System.Drawing.Point(469, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(63, 38);
             this.button2.TabIndex = 1;
@@ -254,7 +254,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(608, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(675, 425);
             this.dataGridView1.TabIndex = 0;
             // 
             // Main
@@ -262,7 +262,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(905, 557);
+            this.ClientSize = new System.Drawing.Size(925, 636);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Black;

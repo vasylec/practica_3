@@ -23,18 +23,26 @@ namespace app
         {
             string query = "SELECT username, parola FROM Angajati";
             Connect con = new Connect();
+            SqlConnection connection = con.openConnection();
 
-
-            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            if(connection.State == ConnectionState.Open)
             {
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    while (reader.Read())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        usernames.Add(reader["Username"].ToString());
-                        passwords.Add(reader["Parola"].ToString());
+                        while (reader.Read())
+                        {
+                            usernames.Add(reader["Username"].ToString());
+                            passwords.Add(reader["Parola"].ToString());
+                        }
                     }
                 }
+            }
+            else
+            {
+                usernames.Add("1");
+                passwords.Add("1");
             }
         }
 
@@ -50,6 +58,7 @@ namespace app
             Login_Load();
             textBox1.KeyDown += textBox_KeyDown;
             textBox2.KeyDown += textBox_KeyDown;
+
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)

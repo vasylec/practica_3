@@ -41,11 +41,5 @@ namespace app
             {}
             return connection;
         }
-
-
-
-
-
-
     }
 }

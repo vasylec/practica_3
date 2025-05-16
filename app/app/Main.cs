@@ -22,6 +22,8 @@ namespace app
             panel1.Hide();
 
             panel1.Left = -200;
+
+            
         }
 
       
@@ -124,17 +126,102 @@ namespace app
         {
             login.Close();
         }
+
+        Timer timer = new Timer();
+        int duration = 150; // 1 secundă
+        int interval = 10;
+        int elapsed = 0;
+        int startWidth = 0;
+        int targetWidth = 250;
+
+        private async Task AnimatePanelWidthAsync(int from, int to, int durationMs)
+        {
+            int steps = 30; // număr de pași (frame-uri)
+            int delay = durationMs / steps;
+            double delta = (double)(to - from) / steps;
+
+            for (int i = 0; i <= steps; i++)
+            {
+                int newWidth = (int)(from + delta * i);
+                panel1.Width = newWidth;
+                await Task.Delay(delay); 
+            }
+
+            panel1.Width = to;
+        }
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            panel1.Hide();
+
+
+            AnimatePanel(250, 0);
+            // ... animare ...
+
+            //panel1.SuspendLayout();
+            //await AnimatePanelWidthAsync(250, 0, 2);
+            //panel1.ResumeLayout();
+
+
+
             pictureBox6.Show();
+            panel1.Hide();
         }
+
+
+        
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
+            
+            
+            
             panel1.Show();
+
+            AnimatePanel(0, 250);
+
+            // ... animare ...
+
+            //panel1.SuspendLayout();
+            //await AnimatePanelWidthAsync(0,250, 2);
+            //panel1.ResumeLayout();
+
+
             pictureBox6.Hide();
         }
+
+
+
+
+        private void AnimatePanel(int fromWidth, int toWidth)
+        {
+            // Setăm valorile de început și final
+            startWidth = fromWidth;
+            targetWidth = toWidth;
+            elapsed = 0;
+
+            // Evităm adăugări multiple
+            timer.Stop();
+            timer.Tick -= Timer_Tick;
+            timer.Tick += Timer_Tick;
+            timer.Interval = interval;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            elapsed += interval;
+            double progress = (double)elapsed / duration;
+            if (progress > 1) progress = 1;
+
+            int newWidth = (int)(startWidth + (targetWidth - startWidth) * progress);
+            panel1.Width = newWidth;
+
+            if (progress >= 1)
+            {
+                panel1.Width = targetWidth;
+                timer.Stop();
+            }
+        }
+
 
         private void pictureBox6_MouseEnter(object sender, EventArgs e)
         {
