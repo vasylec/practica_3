@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace app
 {
@@ -24,10 +26,13 @@ namespace app
         {
             try
             {
-                connection.Open();
+                if (connection.State == System.Data.ConnectionState.Closed)
+                    connection.Open();
             }
-            catch (Exception)
-            {}
+            catch (Exception e)
+            { 
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return connection;
         }
 
@@ -37,8 +42,10 @@ namespace app
             {
                 connection.Close();
             }
-            catch (Exception)
-            {}
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return connection;
         }
     }

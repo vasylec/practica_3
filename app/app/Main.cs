@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,23 +19,74 @@ namespace app
         {
             InitializeComponent();
             this.login = login;
-
             panel1.Hide();
 
-            panel1.Left = -200;
-
-            
+            load_components();
         }
 
-      
+
+        private void load_components()
+        {
+            string query = "SELECT nume, prenume FROM Angajati WHERE id = " + Login.loggedID;
+            Connect con = new Connect();
+            string nume = "", prenume = "";
+
+            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        nume = reader["nume"].ToString();
+                        prenume = reader["prenume"].ToString();
+                    }
+                }
+            }
 
 
 
 
-    
+            label6.Text = "Bun venit, " + nume + " " + prenume + " !";
+            label6.Left = (this.ClientSize.Width - label6.Width) / 2;
+
+
+
+
+
+
+
+            panel2.Hide();
+            panel3.Hide();
+            panel4.Hide();
+
+            panel_add.Hide();
+
+
+        }
+
+
+
+
+
+
+
         private void label2_Click(object sender, EventArgs e)
         {
-
+            panel2.Show();
+            panel3.Hide();
+            panel4.Hide();
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+            panel2.Hide();
+            panel3.Show();
+            panel4.Hide();
+        }
+        private void label4_Click(object sender, EventArgs e)
+        {
+            panel3.Hide();
+            panel2.Hide();
+            panel4.Show();
         }
 
         private void label2_MouseEnter_1(object sender, EventArgs e)
@@ -127,110 +179,61 @@ namespace app
             login.Close();
         }
 
-        Timer timer = new Timer();
-        int duration = 150; // 1 secundă
-        int interval = 10;
-        int elapsed = 0;
-        int startWidth = 0;
-        int targetWidth = 250;
-
-        private async Task AnimatePanelWidthAsync(int from, int to, int durationMs)
-        {
-            int steps = 30; // număr de pași (frame-uri)
-            int delay = durationMs / steps;
-            double delta = (double)(to - from) / steps;
-
-            for (int i = 0; i <= steps; i++)
-            {
-                int newWidth = (int)(from + delta * i);
-                panel1.Width = newWidth;
-                await Task.Delay(delay); 
-            }
-
-            panel1.Width = to;
-        }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-
-
-            AnimatePanel(250, 0);
-            // ... animare ...
-
-            //panel1.SuspendLayout();
-            //await AnimatePanelWidthAsync(250, 0, 2);
-            //panel1.ResumeLayout();
+            panel2.Hide();
+            panel3.Hide();
+            panel4.Hide();
 
 
 
-            pictureBox6.Show();
+            pictureBox7.Show();
             panel1.Hide();
         }
 
-
-        
-
-        private void pictureBox6_Click(object sender, EventArgs e)
+        private void pictureBox7_Click(object sender, EventArgs e)
         {
-            
-            
-            
             panel1.Show();
-
-            AnimatePanel(0, 250);
-
-            // ... animare ...
-
-            //panel1.SuspendLayout();
-            //await AnimatePanelWidthAsync(0,250, 2);
-            //panel1.ResumeLayout();
-
-
-            pictureBox6.Hide();
+            pictureBox7.Hide();
         }
 
-
-
-
-        private void AnimatePanel(int fromWidth, int toWidth)
-        {
-            // Setăm valorile de început și final
-            startWidth = fromWidth;
-            targetWidth = toWidth;
-            elapsed = 0;
-
-            // Evităm adăugări multiple
-            timer.Stop();
-            timer.Tick -= Timer_Tick;
-            timer.Tick += Timer_Tick;
-            timer.Interval = interval;
-            timer.Start();
-        }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            elapsed += interval;
-            double progress = (double)elapsed / duration;
-            if (progress > 1) progress = 1;
-
-            int newWidth = (int)(startWidth + (targetWidth - startWidth) * progress);
-            panel1.Width = newWidth;
-
-            if (progress >= 1)
-            {
-                panel1.Width = targetWidth;
-                timer.Stop();
-            }
-        }
-
-
-        private void pictureBox6_MouseEnter(object sender, EventArgs e)
+        private void pictureBox7_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Hand;
         }
 
-        private void pictureBox6_MouseLeave(object sender, EventArgs e)
+        private void pictureBox7_MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
         }
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            label7_Click(sender, e);
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            pictureBox6.Hide();
+            label5.Hide();
+            label6.Hide();
+
+
+
+            panel2.Hide();
+            panel3.Hide();
+            panel4.Hide();
+
+            panel1.Hide();
+
+            pictureBox7.Show();
+
+
+
+
+            panel_add.Show();
+
+        }
+
     }
 }

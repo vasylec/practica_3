@@ -18,32 +18,32 @@ namespace app
     {
         private List<string> usernames = new List<string>();
         private List<string> passwords = new List<string>();
+        private List<string> id = new List<string>();
+
+        public static string loggedID;
 
         private void Login_Load()
         {
-            string query = "SELECT username, parola FROM Angajati";
+            string query = "SELECT id, username, parola FROM Angajati";
             Connect con = new Connect();
-            SqlConnection connection = con.openConnection();
-
-            if(connection.State == ConnectionState.Open)
+            
+            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
             {
-                using (SqlCommand cmd = new SqlCommand(query, connection))
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            usernames.Add(reader["Username"].ToString());
-                            passwords.Add(reader["Parola"].ToString());
-                        }
+                        id.Add(reader["id"].ToString());
+                        usernames.Add(reader["Username"].ToString());
+                        passwords.Add(reader["Parola"].ToString());
                     }
                 }
             }
-            else
-            {
-                usernames.Add("1");
-                passwords.Add("1");
-            }
+
+            id.Add("-1");
+            usernames.Add("1");
+            passwords.Add("1");
+
         }
 
 
@@ -55,9 +55,9 @@ namespace app
             InitializeComponent();
             textBox2.UseSystemPasswordChar = true;
             button2.Image = Properties.Resources.view;
-            Login_Load();
             textBox1.KeyDown += textBox_KeyDown;
             textBox2.KeyDown += textBox_KeyDown;
+            Login_Load();
 
         }
 
@@ -79,6 +79,7 @@ namespace app
             {
                 if (textBox1.Text == usernames[i] && textBox2.Text == passwords[i])
                 {
+                    loggedID = id[i];
                     logged = true;
                     Main main = new Main(this);
                     main.Show();

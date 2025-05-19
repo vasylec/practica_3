@@ -1,5 +1,6 @@
 CREATE DATABASE db_telecom
 
+
 USE db_telecom
 
 GO
@@ -78,6 +79,7 @@ CREATE TABLE Apeluri (
     CONSTRAINT CHK_tipApel CHECK (tipApel IN ('National', 'International', 'Roaming')),
     CONSTRAINT CHK_nrDifera CHECK (nrSursa <> nrDestinatie)
 );
+
 
 
 ----------------------------------------------------------------------------------------------------------------
