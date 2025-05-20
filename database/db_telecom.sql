@@ -1,4 +1,4 @@
-CREATE DATABASE db_telecom
+﻿CREATE DATABASE db_telecom
 
 
 USE db_telecom
@@ -83,6 +83,8 @@ CREATE TABLE Apeluri (
 
 
 ----------------------------------------------------------------------------------------------------------------
+GO
+
 
 
 GO
@@ -94,30 +96,72 @@ END
 
 GO
 
-CREATE PROCEDURE add_nr @idnp_client NVARCHAR(13), @telefon NVARCHAR(15)
+CREATE PROCEDURE add_nr @idnp_client NVARCHAR(13), @telefon NVARCHAR(15), @fix BIT
 AS
 BEGIN
-	INSERT INTO NumereTelefoane VALUES ((SELECT id FROM Clienti WHERE idnp = @idnp_client), @telefon, GETDATE());
+	INSERT INTO NumereTelefoane VALUES ((SELECT id FROM Clienti WHERE idnp = @idnp_client), @telefon, GETDATE(), @fix);
 END
+
+GO
+CREATE PROCEDURE add_nr 
+    @idnp_client NVARCHAR(13), 
+    @telefon NVARCHAR(15), 
+    @fix BIT
+AS
+BEGIN
+    DECLARE @id_client INT;
+
+    SELECT @id_client = id 
+    FROM Clienti 
+    WHERE idnp = @idnp_client;
+
+    IF @id_client IS NULL
+    BEGIN
+        THROW 50001, 'Clientul cu IDNP-ul specificat nu există.', 1;
+        RETURN;
+    END
+
+    INSERT INTO NumereTelefoane 
+    VALUES (@id_client, @telefon, GETDATE(), @fix);
+END
+
+
+
+
+
 
 
 
 EXEC add_client 'Cozma', 'Vasile', '20012412902', 'vacozma06@gmail.com', 'bd. Dacia 60/5 71';
 EXEC add_client 'Jomir', 'Ghoerghe', '2002500570790', 'vcozma06@gmail.com', 'bd. Stefan cel Mare 632/4 21';
-EXEC add_nr '20012412902', '0123456781'
+
+
+EXEC add_nr '1234567890123', '0123156021', '0'
+
+SELECT * FROM NumereTelefoane
+
+
+
 
 SELECT * FROM Clienti
 SELECT * FROM NumereTelefoane
 
+DELETE Clienti
+WHERE id = 15
+
 ----------------------------------------------------------------------------------------------------------------
 
 GO
-CREATE PROCEDURE delete_by_nr @telefon NVARCHAR(15)
+CREATE PROCEDURE delete_nr @telefon NVARCHAR(15)
 AS
-DELETE FROM Clienti
+DELETE FROM NumereTelefoane
 WHERE telefon = @telefon;
 
-EXEC delete_by_nr '060000000'
+
+SELECT * FROM NumereTelefoane
+
+
+
 
 GO
 CREATE PROCEDURE get_nr_by_name @nume NVARCHAR(100), @prenume NVARCHAR(100)
@@ -128,9 +172,33 @@ WHERE nume = @nume AND prenume = @prenume
 EXEC get_nr_by_name 'Cozma', 'Vasile'
 
 
-
-
-SELECT * FROM Clienti
+SELECT * FROM NumereTelefoane
 
 
 
+SELECT * FROM vw_luckyNumbers
+
+
+
+
+
+GO
+CREATE VIEW vw_luckyNumbers
+AS
+SELECT c.id AS clientId, c.Nume, c.Prenume, n.telefon, n.nrFix
+FROM NumereTelefoane n
+INNER JOIN Clienti c ON n.clientId = c.id
+WHERE
+    LEN(n.telefon) >= 6 AND
+    ISNUMERIC(n.telefon) = 1 AND
+    (
+        CAST(SUBSTRING(n.telefon, 1, 1) AS INT) +
+        CAST(SUBSTRING(n.telefon, 2, 1) AS INT) +
+        CAST(SUBSTRING(n.telefon, 3, 1) AS INT)
+    )
+    =
+    (
+        CAST(SUBSTRING(n.telefon, LEN(n.telefon)-2, 1) AS INT) +
+        CAST(SUBSTRING(n.telefon, LEN(n.telefon)-1, 1) AS INT) +
+        CAST(SUBSTRING(n.telefon, LEN(n.telefon), 1) AS INT)
+    );

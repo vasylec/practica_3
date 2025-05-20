@@ -94,3 +94,11 @@ INSERT INTO Angajati VALUES
 
 SELECT * FROM Angajati
 
+
+SELECT * FROM Angajati
+
+
+
+
+
+

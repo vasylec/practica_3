@@ -56,6 +56,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connect.cs" />
+    <Compile Include="db_telecomDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +102,39 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="db_telecomDataSet.xsc">
+      <DependentUpon>db_telecomDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet.xss">
+      <DependentUpon>db_telecomDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet1.xsc">
+      <DependentUpon>db_telecomDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet1.xss">
+      <DependentUpon>db_telecomDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet2.xsc">
+      <DependentUpon>db_telecomDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet2.xss">
+      <DependentUpon>db_telecomDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
