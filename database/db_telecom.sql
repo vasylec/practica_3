@@ -202,3 +202,45 @@ WHERE
         CAST(SUBSTRING(n.telefon, LEN(n.telefon)-1, 1) AS INT) +
         CAST(SUBSTRING(n.telefon, LEN(n.telefon), 1) AS INT)
     );
+
+
+
+
+
+GO
+CREATE PROCEDURE select_Tel_By_Name @nume NVARCHAR(100), @prenume NVARCHAR(100)
+AS
+SELECT NumereTelefoane.id,clientId, Nume, Prenume, telefon, NumereTelefoane.dataInregistrare, nrFix  FROM NumereTelefoane
+INNER JOIN Clienti ON Clienti.id = clientId
+WHERE Nume = @nume and Prenume = @prenume
+
+
+
+use db_telecom
+EXEC select_Tel_By_Name 'Cozma', 'Vasile'
+
+
+GO
+CREATE PROCEDURE select_NameAdress_By_Tel @telefon NVARCHAR(15)
+AS
+SELECT clientId, Nume, Prenume, adresa, telefon FROM NumereTelefoane
+INNER JOIN Clienti ON Clienti.id = clientId
+WHERE telefon = @telefon
+
+EXEC select_NameAdress_By_Tel '0700000000'
+
+SELECT * FROM NumereTelefoane
+
+
+SELECT * FROM NumereTelefoane
+WHERE YEAR(dataInregistrare) > 2020
+
+
+
+
+UPDATE NumereTelefoane
+SET dataInregistrare = '2020-03-20'
+WHERE nrFix = 1
+
+
+

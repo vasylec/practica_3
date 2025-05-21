@@ -83,19 +83,31 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel_remove = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.panel_luckyNumbers = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet2 = new app.db_telecomDataSet2();
-            this.vwluckyNumbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_luckyNumbersTableAdapter = new app.db_telecomDataSet2TableAdapters.vw_luckyNumbersTableAdapter();
             this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nrFixDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vwluckyNumbersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet2 = new app.db_telecomDataSet2();
+            this.vw_luckyNumbersTableAdapter = new app.db_telecomDataSet2TableAdapters.vw_luckyNumbersTableAdapter();
+            this.panel_tel = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel_report = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -117,8 +129,12 @@
             this.panel_remove.SuspendLayout();
             this.panel_luckyNumbers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwluckyNumbersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet2)).BeginInit();
+            this.panel_tel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel_report.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -431,6 +447,7 @@
             this.label13.Size = new System.Drawing.Size(248, 28);
             this.label13.TabIndex = 18;
             this.label13.Text = "Nr. de telefoane instalate";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label10
             // 
@@ -443,6 +460,7 @@
             this.label10.Size = new System.Drawing.Size(171, 28);
             this.label10.TabIndex = 17;
             this.label10.Text = "Numele și adresa";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -455,6 +473,7 @@
             this.label11.Size = new System.Drawing.Size(189, 28);
             this.label11.TabIndex = 16;
             this.label11.Text = "Numărul de telefon";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -516,6 +535,7 @@
             this.label17.Size = new System.Drawing.Size(153, 28);
             this.label17.TabIndex = 15;
             this.label17.Text = "Export în excel";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // pictureBox7
             // 
@@ -771,13 +791,16 @@
             this.panel_remove.Size = new System.Drawing.Size(301, 163);
             this.panel_remove.TabIndex = 19;
             // 
-            // textBox8
+            // button3
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Location = new System.Drawing.Point(64, 83);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(173, 22);
-            this.textBox8.TabIndex = 0;
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.Location = new System.Drawing.Point(105, 122);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(90, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Exclude";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label26
             // 
@@ -791,30 +814,30 @@
             this.label26.TabIndex = 1;
             this.label26.Text = "Exclude un număr de Telefon";
             // 
-            // button3
+            // textBox8
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(105, 122);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exclude";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox8.Location = new System.Drawing.Point(64, 83);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(173, 22);
+            this.textBox8.TabIndex = 0;
             // 
             // panel_luckyNumbers
             // 
             this.panel_luckyNumbers.Controls.Add(this.dataGridView1);
             this.panel_luckyNumbers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_luckyNumbers.Location = new System.Drawing.Point(250, 0);
+            this.panel_luckyNumbers.Location = new System.Drawing.Point(0, 0);
             this.panel_luckyNumbers.Name = "panel_luckyNumbers";
-            this.panel_luckyNumbers.Size = new System.Drawing.Size(673, 588);
+            this.panel_luckyNumbers.Size = new System.Drawing.Size(923, 588);
             this.panel_luckyNumbers.TabIndex = 24;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -826,28 +849,13 @@
             this.telefonDataGridViewTextBoxColumn,
             this.nrFixDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.vwluckyNumbersBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(70, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(673, 588);
+            this.dataGridView1.Size = new System.Drawing.Size(853, 588);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // db_telecomDataSet2
-            // 
-            this.db_telecomDataSet2.DataSetName = "db_telecomDataSet2";
-            this.db_telecomDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vwluckyNumbersBindingSource
-            // 
-            this.vwluckyNumbersBindingSource.DataMember = "vw_luckyNumbers";
-            this.vwluckyNumbersBindingSource.DataSource = this.db_telecomDataSet2;
-            // 
-            // vw_luckyNumbersTableAdapter
-            // 
-            this.vw_luckyNumbersTableAdapter.ClearBeforeFill = true;
             // 
             // clientIdDataGridViewTextBoxColumn
             // 
@@ -889,20 +897,171 @@
             this.nrFixDataGridViewCheckBoxColumn.Name = "nrFixDataGridViewCheckBoxColumn";
             this.nrFixDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // vwluckyNumbersBindingSource
+            // 
+            this.vwluckyNumbersBindingSource.DataMember = "vw_luckyNumbers";
+            this.vwluckyNumbersBindingSource.DataSource = this.db_telecomDataSet2;
+            // 
+            // db_telecomDataSet2
+            // 
+            this.db_telecomDataSet2.DataSetName = "db_telecomDataSet2";
+            this.db_telecomDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vw_luckyNumbersTableAdapter
+            // 
+            this.vw_luckyNumbersTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel_tel
+            // 
+            this.panel_tel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel_tel.Controls.Add(this.button5);
+            this.panel_tel.Controls.Add(this.dataGridView2);
+            this.panel_tel.Controls.Add(this.label28);
+            this.panel_tel.Controls.Add(this.label27);
+            this.panel_tel.Controls.Add(this.button4);
+            this.panel_tel.Controls.Add(this.textBox10);
+            this.panel_tel.Controls.Add(this.textBox9);
+            this.panel_tel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_tel.Location = new System.Drawing.Point(0, 0);
+            this.panel_tel.Name = "panel_tel";
+            this.panel_tel.Size = new System.Drawing.Size(923, 588);
+            this.panel_tel.TabIndex = 1;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 70);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(923, 518);
+            this.dataGridView2.TabIndex = 5;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(248, 19);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(61, 16);
+            this.label28.TabIndex = 4;
+            this.label28.Text = "Prenume";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(93, 19);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(43, 16);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Nume";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(398, 39);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Caută";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(247, 40);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(144, 22);
+            this.textBox10.TabIndex = 1;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(92, 40);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(144, 22);
+            this.textBox9.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(247, 39);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Caută";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // panel_report
+            // 
+            this.panel_report.Controls.Add(this.dataGridView3);
+            this.panel_report.Controls.Add(this.label29);
+            this.panel_report.Controls.Add(this.button6);
+            this.panel_report.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_report.Location = new System.Drawing.Point(0, 0);
+            this.panel_report.Name = "panel_report";
+            this.panel_report.Size = new System.Drawing.Size(923, 588);
+            this.panel_report.TabIndex = 25;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Location = new System.Drawing.Point(828, 22);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 30);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Export";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label29.ForeColor = System.Drawing.Color.White;
+            this.label29.Location = new System.Drawing.Point(90, 25);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(383, 25);
+            this.label29.TabIndex = 1;
+            this.label29.Text = "Previzualizarea datelor - Exportare în Excel";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(-5, 68);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.Size = new System.Drawing.Size(928, 520);
+            this.dataGridView3.TabIndex = 2;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(923, 588);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.panel_luckyNumbers);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel_remove);
-            this.Controls.Add(this.panel_add);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_report);
+            this.Controls.Add(this.panel_tel);
+            this.Controls.Add(this.panel_luckyNumbers);
+            this.Controls.Add(this.panel_remove);
+            this.Controls.Add(this.panel_add);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox6);
@@ -939,8 +1098,14 @@
             this.panel_remove.PerformLayout();
             this.panel_luckyNumbers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwluckyNumbersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet2)).EndInit();
+            this.panel_tel.ResumeLayout(false);
+            this.panel_tel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel_report.ResumeLayout(false);
+            this.panel_report.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1015,5 +1180,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prenumeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn nrFixDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.Panel panel_tel;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel_report;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

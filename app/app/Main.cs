@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace app
 {
@@ -15,6 +16,7 @@ namespace app
     {
 
         Login login;
+        int selectedPanel = 0;
         public Main(Login login)
         {
             InitializeComponent();
@@ -59,9 +61,9 @@ namespace app
             panel3.Hide();
             panel4.Hide();
 
-            panel_add.Hide();
-            panel_remove.Hide();
-            panel_luckyNumbers.Hide();
+            
+
+            showSpecificPanel(0);
 
 
 
@@ -242,44 +244,27 @@ namespace app
 
         private void label7_Click(object sender, EventArgs e)
         {
-            pictureBox6.Hide();
-            label5.Hide();
-            label6.Hide();
+            sidePanelClick();
 
 
 
-            panel2.Hide();
-            panel3.Hide();
-            panel4.Hide();
-
-            panel1.Hide();
-
-            pictureBox7.Show();
-
-
-
-
-            panel_add.Show();
-            panel_luckyNumbers.Hide();
-            panel_remove.Hide();
+            showSpecificPanel(1);
+            //panel_add.Show();
+            //panel_luckyNumbers.Hide();
+            //panel_remove.Hide();
+            //panel_tel.Hide();
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            pictureBox6.Hide();
-            label5.Hide();
-            label6.Hide();
-            panel2.Hide();
-            panel3.Hide();
-            panel4.Hide();
-            panel1.Hide();
+            sidePanelClick();
 
-            pictureBox7.Show();
+            showSpecificPanel(2);
 
-
-            panel_add.Hide();
-            panel_luckyNumbers.Hide();
-            panel_remove.Show();
+            //panel_add.Hide();
+            //panel_luckyNumbers.Hide();
+            //panel_remove.Show();
+            //panel_tel.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -403,12 +388,21 @@ namespace app
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'db_telecomDataSet2.vw_luckyNumbers' table. You can move, or remove it, as needed.
             this.vw_luckyNumbersTableAdapter.Fill(this.db_telecomDataSet2.vw_luckyNumbers);
-            // TODO: This line of code loads data into the 'db_telecomDataSet1.vw_luckyNumbers' table. You can move, or remove it, as needed.
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+            sidePanelClick();
+
+            showSpecificPanel(3);
+            //panel_add.Hide();
+            //panel_luckyNumbers.Show();
+            //panel_remove.Hide();
+            //panel_tel.Hide();
+        }
+
+        private void sidePanelClick()
         {
             pictureBox6.Hide();
             label5.Hide();
@@ -419,10 +413,189 @@ namespace app
             panel1.Hide();
 
             pictureBox7.Show();
+        }
+
+        private void showSpecificPanel(int n)
+        {
+            dataGridView2.DataSource = null;
+            textBox9.Text = null;
+            textBox10.Text = null;
 
             panel_add.Hide();
-            panel_luckyNumbers.Show();
+            panel_luckyNumbers.Hide();
             panel_remove.Hide();
+            panel_tel.Hide();
+            panel_report.Hide();
+
+            switch (n)
+            {
+                case 0:
+                    panel_luckyNumbers.Hide();
+                    panel_remove.Hide();
+                    panel_tel.Hide();
+                    panel_add.Hide();
+                    break;
+                case 1:
+                    panel_add.Show();
+                    break;
+                case 2:
+                    panel_remove.Show();
+                    break;
+                case 3:
+                    panel_luckyNumbers.Show();
+                    break;
+                case 4:
+                    panel_tel.Show();
+                    break;
+                case 5:
+                    panel_report.Show();
+                    break;
+            }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            sidePanelClick();
+            showSpecificPanel(4);
+
+            label27.Text = "Nume";
+            textBox10.Show();
+            label28.Show();
+            button4.Show();
+            button5.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            string query = "EXEC select_Tel_By_Name '" + textBox9.Text + "', '" + textBox10.Text + "'";
+            //string query = "SELECT NumereTelefoane.id,clientId, Nume, Prenume, telefon, NumereTelefoane.dataInregistrare, nrFix  FROM NumereTelefoane\r\nINNER JOIN Clienti ON Clienti.id = clientId\r\nWHERE Nume = " + textBox9.Text + " and Prenume = " + textBox10.Text;
+
+            Connect con = new Connect();
+
+            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            showSpecificPanel(4);
+            sidePanelClick();
+            selectedPanel = 1;
+
+            button4.Hide();
+            button5.Show();
+            textBox10.Hide();
+            label28.Hide();
+            label27.Text = "Număr de telefon";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(selectedPanel == 1)
+            {
+                string query = "EXEC select_NameAdress_By_Tel '" + textBox9.Text + "'";
+
+                Connect con = new Connect();
+
+                using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView2.DataSource = dt;
+                }
+            }
+            else if(selectedPanel == 2)
+            {
+                string query = "SELECT * FROM NumereTelefoane\r\nWHERE YEAR(dataInregistrare) > " + textBox9.Text;
+
+                Connect con = new Connect();
+
+                using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView2.DataSource = dt;
+                }
+            }
+            
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            showSpecificPanel(4);
+            sidePanelClick();
+            selectedPanel = 2;
+
+            button4.Hide();
+            button5.Show();
+            textBox10.Hide();
+            label28.Hide();
+            label27.Text = "Anul";
+
+
+            
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+            showSpecificPanel(5);   sidePanelClick();
+            string query = "SELECT * FROM Clienti";
+
+            DataTable dt = new DataTable();
+            Connect con = new Connect();
+
+
+            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                adapter.Fill(dt);
+                dataGridView3.DataSource = dt;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+                sfd.FileName = "export.xlsx";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string query = "SELECT * FROM Clienti";
+                        Connect con = new Connect();
+
+                        using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            using (XLWorkbook wb = new XLWorkbook())
+                            {
+                                wb.Worksheets.Add(dt, "Export");
+                                wb.SaveAs(sfd.FileName);
+                            }
+
+                            MessageBox.Show("Exportul a fost realizat cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Eroare la export: " + ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }   
 }
