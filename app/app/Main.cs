@@ -9,6 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.EMMA;
+using Azure.AI.OpenAI;
+using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting;
+
 
 namespace app
 {
@@ -78,6 +83,15 @@ namespace app
 
             textBox6.KeyDown += textBox2_KeyDown;
             textBox7.KeyDown += textBox2_KeyDown;
+
+
+
+
+
+
+            
+
+
 
         }
 
@@ -249,10 +263,6 @@ namespace app
 
 
             showSpecificPanel(1);
-            //panel_add.Show();
-            //panel_luckyNumbers.Hide();
-            //panel_remove.Hide();
-            //panel_tel.Hide();
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -261,10 +271,6 @@ namespace app
 
             showSpecificPanel(2);
 
-            //panel_add.Hide();
-            //panel_luckyNumbers.Hide();
-            //panel_remove.Show();
-            //panel_tel.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -396,10 +402,6 @@ namespace app
             sidePanelClick();
 
             showSpecificPanel(3);
-            //panel_add.Hide();
-            //panel_luckyNumbers.Show();
-            //panel_remove.Hide();
-            //panel_tel.Hide();
         }
 
         private void sidePanelClick()
@@ -469,7 +471,6 @@ namespace app
         {
 
             string query = "EXEC select_Tel_By_Name '" + textBox9.Text + "', '" + textBox10.Text + "'";
-            //string query = "SELECT NumereTelefoane.id,clientId, Nume, Prenume, telefon, NumereTelefoane.dataInregistrare, nrFix  FROM NumereTelefoane\r\nINNER JOIN Clienti ON Clienti.id = clientId\r\nWHERE Nume = " + textBox9.Text + " and Prenume = " + textBox10.Text;
 
             Connect con = new Connect();
 
@@ -546,6 +547,8 @@ namespace app
 
         private void label17_Click(object sender, EventArgs e)
         {
+            label29.Show();button6.Show();
+            label31.Hide();label32.Hide();textBox11.Hide();textBox12.Hide();button7.Hide();
             showSpecificPanel(5);   sidePanelClick();
             string query = "SELECT * FROM Clienti";
 
@@ -597,5 +600,100 @@ namespace app
                 }
             }
         }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+            label30.ForeColor = Color.FromArgb(0, 102, 204);
+        }
+
+        private void label30_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+            label30.ForeColor = Color.Black;
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+            label29.Hide(); button6.Hide();
+            label31.Show(); label32.Show(); textBox11.Show(); textBox12.Show(); button7.Show();
+            dataGridView3.DataSource = null;
+            showSpecificPanel(5);sidePanelClick();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int luna = Convert.ToInt32(textBox11.Text);
+                int anul = Convert.ToInt32(textBox12.Text);
+
+                string query = "EXEC select_Clienti_By_Luna " + luna + ", " + anul;
+                Connect con = new Connect();
+
+                using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView3.DataSource = dt;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ai întâmpinat o eroare: " + ex.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                textBox11.Text = "";
+                textBox12.Text = "";
+            }
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            sidePanelClick();
+            showSpecificPanel(5);
+
+            //string query = @"
+            //                SELECT 
+            //                    C.nume AS Nume,
+            //                    C.prenume AS Prenume,
+            //                    C.adresa AS Adresa,
+            //                    NT.telefon AS Telefon,
+            //                    CASE 
+            //                        WHEN C.adresa LIKE '%(Urban)%' THEN 'Urban'
+            //                        WHEN C.adresa LIKE '%(Rural)%' THEN 'Rural'
+            //                        ELSE 'Necunoscut'
+            //                    END AS TipLocalitate
+            //                FROM Clienti C
+            //                JOIN NumereTelefoane NT ON C.id = NT.clientId
+            //                WHERE NT.nrFix = 1
+            //                ORDER BY TipLocalitate, C.nume;
+            //            ";
+
+            //Connect con = new Connect();
+            //using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            //{
+            //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            //    DataTable dt = new DataTable();
+            //    adapter.Fill(dt);
+
+            //    reportViewer1.LocalReport.ReportPath = "Report1.rdlc";
+            //    reportViewer1.LocalReport.DataSources.Clear();
+            //    reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("Report1.rdlc", dt));
+                
+            //    reportViewer1.RefreshReport();
+
+            //}
+        }
     }   
 }
+
+//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

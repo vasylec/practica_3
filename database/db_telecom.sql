@@ -19,6 +19,11 @@ CREATE TABLE Angajati (
 );
 
 
+ALTER TABLE Clienti
+ADD localitate NVARCHAR(10) NOT NULL DEFAULT 'Urban',
+    CONSTRAINT CHK_Localitate_2 CHECK (localitate IN ('Urban', 'Rural'));
+
+
 CREATE TABLE Clienti (
     id INT IDENTITY(1,1) PRIMARY KEY,
     nume NVARCHAR(100) NOT NULL,
@@ -79,9 +84,9 @@ CREATE TABLE Apeluri (
     CONSTRAINT CHK_tipApel CHECK (tipApel IN ('National', 'International', 'Roaming')),
     CONSTRAINT CHK_nrDifera CHECK (nrSursa <> nrDestinatie)
 );
+INSERT INTO Apeluri VALUES ('0123456781', '0777777777', '2025-05-01',50 , 'Roaming')
 
-
-
+SELECT * FROM NumereTelefoane
 ----------------------------------------------------------------------------------------------------------------
 GO
 
@@ -243,4 +248,136 @@ SET dataInregistrare = '2020-03-20'
 WHERE nrFix = 1
 
 
+
+GO
+CREATE PROCEDURE select_Clienti_By_Luna @luna INT, @anul INT
+AS
+SELECT 
+    C.id AS ClientId,
+    C.nume,
+    NT.telefon,
+    SUM(A.durataSecunde) AS TotalDurataSecunde
+FROM Apeluri A
+JOIN NumereTelefoane NT ON A.nrSursa = NT.telefon
+JOIN Clienti C ON NT.clientId = C.id
+WHERE NT.nrFix = 1 
+  AND MONTH(A.dataApel) = @luna
+  AND YEAR(A.dataApel) = @anul
+GROUP BY C.id, C.nume, NT.telefon
+ORDER BY TotalDurataSecunde DESC;
+
+
+
+
+
+
+GO
+CREATE VIEW evidenta_telFix
+AS
+ SELECT 
+     C.nume AS Nume,
+     C.prenume AS Prenume,
+     C.adresa AS Adresa,
+     NT.telefon AS Telefon,
+     CASE 
+         WHEN C.localitate = 'Urban' THEN 'Urban'
+         WHEN C.localitate = 'Rural' THEN 'Rural'
+         ELSE 'Necunoscut'
+     END AS TipLocalitate
+ FROM Clienti C
+ JOIN NumereTelefoane NT ON C.id = NT.clientId
+ WHERE NT.nrFix = 1
+
+
+
+ SELECT * FROM evidenta_telFix
+ ORDER BY TipLocalitate, nume
+
+
+
+
+
+-- Populare tabel Clienti
+INSERT INTO Clienti (nume, prenume, idnp, email, adresa, dataInregistrare)
+VALUES
+('Popescu', 'Ion', '1980203123456', 'ion1@email.com', 'Str. Lalelelor 12', '2024-01-01'),
+('Ionescu', 'Maria', '2950506123456', 'maria2@email.com', 'Str. Libertății 5', '2023-11-02'),
+('Radu', 'Andrei', '1991231123456', 'andrei3@email.com', 'Str. Unirii 45', '2024-05-03'),
+('Georgescu', 'Elena', '2900412123456', 'elena4@email.com', 'Str. Victoriei 11', '2023-12-04'),
+('Dumitru', 'Cristian', '1800101123456', 'cristi5@email.com', 'Str. Florilor 7', '2024-01-05'),
+('Nistor', 'Ana', '2950318123456', 'ana6@email.com', 'Str. Sperantei 9', '2024-02-06'),
+('Barbu', 'Mihai', '1990722123456', 'mihai7@email.com', 'Str. Independentei 6', '2024-03-07'),
+('Stoica', 'Irina', '2921015123456', 'irina8@email.com', 'Str. Aviatorilor 17', '2024-04-08'),
+('Marin', 'Diana', '2990201123456', 'diana9@email.com', 'Str. Horea 22', '2024-04-09'),
+('Petrescu', 'Alin', '1980610123456', 'alin10@email.com', 'Str. Luminitei 3', '2024-05-10'),
+('Ilie', 'Simona', '2940912123456', 'simona11@email.com', 'Str. Stadionului 1', '2024-05-11'),
+('Sandu', 'Victor', '1970415123456', 'victor12@email.com', 'Str. Nufarului 8', '2024-05-12'),
+('Matei', 'Laura', '2910601123456', 'laura13@email.com', 'Str. Zorilor 10', '2024-05-13'),
+('Florea', 'George', '1960502123456', 'george14@email.com', 'Str. Albinelor 14', '2024-05-14'),
+('Enache', 'Raluca', '2981220123456', 'raluca15@email.com', 'Str. Crinului 12', '2024-05-15'),
+('Lazar', 'Stefan', '1990304123456', 'stefan16@email.com', 'Str. Teiului 13', '2024-05-16'),
+('Tudor', 'Gabriela', '2930812123456', 'gabriela17@email.com', 'Str. Ciresului 16', '2024-05-17'),
+('Costache', 'Emil', '1950203123456', 'emil18@email.com', 'Str. Baciului 21', '2024-05-18'),
+('Dragomir', 'Monica', '2950618123456', 'monica19@email.com', 'Str. Papusii 11', '2024-05-19'),
+('Lupu', 'Daniela', '2930516123456', 'daniela20@email.com', 'Str. Rozelor 4', '2024-05-20');
+
+
+
+-- Populare tabel NumereTelefoane
+DECLARE @i INT = 1
+WHILE @i <= 20
+BEGIN
+    INSERT INTO NumereTelefoane (clientId, telefon, dataInregistrare, nrFix)
+    VALUES 
+        (@i, CONCAT('021400', FORMAT(@i, 'D4')), '2024-05-01', 1); -- fix
+
+    INSERT INTO NumereTelefoane (clientId, telefon, dataInregistrare, nrFix)
+    VALUES 
+        (@i, CONCAT('07', FORMAT(30 + @i, 'D2'), FORMAT(@i * 111, 'D6')), '2024-05-01', 0); -- mobil
+
+    SET @i = @i + 1
+END
+
+SELECT * FROM Apeluri
+-- Creăm o listă temporară cu toate numerele
+SELECT telefon INTO #numere FROM NumereTelefoane;
+
+-- Selectăm primele 20 de combinații nrSursa <> nrDestinatie
+WITH combinatii AS (
+    SELECT TOP 20 
+        s.telefon AS nrSursa, 
+        d.telefon AS nrDestinatie
+    FROM #numere s
+    CROSS JOIN #numere d
+    WHERE s.telefon <> d.telefon
+)
+INSERT INTO Apeluri (nrSursa, nrDestinatie, dataApel, durataSecunde, tipApel)
+SELECT 
+    nrSursa,
+    nrDestinatie,
+    DATEADD(DAY, ABS(CHECKSUM(NEWID())) % 30, '2025-03-01'), -- date random în mai 2025
+    60 + ABS(CHECKSUM(NEWID())) % 300, -- durată între 60 și 360 secunde
+    CASE ABS(CHECKSUM(NEWID())) % 3 
+        WHEN 0 THEN 'National' 
+        WHEN 1 THEN 'International' 
+        ELSE 'Roaming' 
+    END
+FROM combinatii;
+
+DROP TABLE #numere;
+
+
+
+
+
+
+
+WITH Numerotare AS (
+    SELECT id, ROW_NUMBER() OVER (ORDER BY id) AS rn
+    FROM Clienti
+)
+UPDATE A
+SET localitate = CASE WHEN N.rn % 2 = 0 THEN 'Urban' ELSE 'Rural' END
+FROM Clienti A
+JOIN Numerotare N ON A.id = N.id;
 
