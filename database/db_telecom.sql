@@ -381,3 +381,59 @@ SET localitate = CASE WHEN N.rn % 2 = 0 THEN 'Urban' ELSE 'Rural' END
 FROM Clienti A
 JOIN Numerotare N ON A.id = N.id;
 
+
+
+
+SELECT * FROM evidenta_telFix
+
+
+
+
+CREATE VIEW evidenta_telFix AS
+SELECT 
+    c.localitate,
+    COUNT(DISTINCT c.id) AS nrAbonatiFix
+FROM 
+    Clienti c
+JOIN 
+    NumereTelefoane nt ON c.id = nt.clientId
+WHERE 
+    nt.nrFix = 1
+GROUP BY 
+    c.localitate;
+
+
+
+	SELECT * FROM Clienti
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

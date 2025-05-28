@@ -81,8 +81,10 @@ namespace app
                 {
                     loggedID = id[i];
                     logged = true;
-                    Main main = new Main(this);
-                    main.Show();
+                    Form1 f = new Form1();
+                    f.Show();
+                    //Main main = new Main(this);
+                    //main.Show();
                     this.Hide();
                 }
             }

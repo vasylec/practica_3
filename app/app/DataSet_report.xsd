@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_report" targetNamespace="http://tempuri.org/DataSet_report.xsd" xmlns:mstns="http://tempuri.org/DataSet_report.xsd" xmlns="http://tempuri.org/DataSet_report.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="db_telecomConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="db_telecomConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.app.Properties.Settings.GlobalReference.Default.db_telecomConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="evidenta_telFixTableAdapter" GeneratorDataComponentClassName="evidenta_telFixTableAdapter" Name="evidenta_telFix" UserDataComponentName="evidenta_telFixTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="db_telecomConnectionString (Settings)" DbObjectName="db_telecom.dbo.evidenta_telFix" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nume, Prenume, Adresa, Telefon, TipLocalitate FROM dbo.evidenta_telFix</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nume" DataSetColumn="Nume" />
+              <Mapping SourceColumn="Prenume" DataSetColumn="Prenume" />
+              <Mapping SourceColumn="Adresa" DataSetColumn="Adresa" />
+              <Mapping SourceColumn="Telefon" DataSetColumn="Telefon" />
+              <Mapping SourceColumn="TipLocalitate" DataSetColumn="TipLocalitate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_report" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet_report" msprop:Generator_DataSetName="DataSet_report">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="evidenta_telFix" msprop:Generator_RowEvHandlerName="evidenta_telFixRowChangeEventHandler" msprop:Generator_RowDeletedName="evidenta_telFixRowDeleted" msprop:Generator_RowDeletingName="evidenta_telFixRowDeleting" msprop:Generator_RowEvArgName="evidenta_telFixRowChangeEvent" msprop:Generator_TablePropName="evidenta_telFix" msprop:Generator_RowChangedName="evidenta_telFixRowChanged" msprop:Generator_RowChangingName="evidenta_telFixRowChanging" msprop:Generator_TableClassName="evidenta_telFixDataTable" msprop:Generator_RowClassName="evidenta_telFixRow" msprop:Generator_TableVarName="tableevidenta_telFix" msprop:Generator_UserTableName="evidenta_telFix">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nume" msprop:Generator_ColumnPropNameInRow="Nume" msprop:Generator_ColumnPropNameInTable="NumeColumn" msprop:Generator_ColumnVarNameInTable="columnNume" msprop:Generator_UserColumnName="Nume">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prenume" msprop:Generator_ColumnPropNameInRow="Prenume" msprop:Generator_ColumnPropNameInTable="PrenumeColumn" msprop:Generator_ColumnVarNameInTable="columnPrenume" msprop:Generator_UserColumnName="Prenume">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adresa" msprop:Generator_ColumnPropNameInRow="Adresa" msprop:Generator_ColumnPropNameInTable="AdresaColumn" msprop:Generator_ColumnVarNameInTable="columnAdresa" msprop:Generator_UserColumnName="Adresa">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telefon" msprop:Generator_ColumnPropNameInRow="Telefon" msprop:Generator_ColumnPropNameInTable="TelefonColumn" msprop:Generator_ColumnVarNameInTable="columnTelefon" msprop:Generator_UserColumnName="Telefon" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TipLocalitate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="TipLocalitate" msprop:Generator_ColumnPropNameInTable="TipLocalitateColumn" msprop:Generator_ColumnVarNameInTable="columnTipLocalitate" msprop:Generator_UserColumnName="TipLocalitate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
