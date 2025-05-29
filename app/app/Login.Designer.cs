@@ -173,6 +173,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.MinimumSize = new System.Drawing.Size(500, 400);
             this.Name = "Login";
+            //this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

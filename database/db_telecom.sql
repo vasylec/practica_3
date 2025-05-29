@@ -388,7 +388,6 @@ SELECT * FROM evidenta_telFix
 
 
 
-
 CREATE VIEW evidenta_telFix AS
 SELECT 
     c.localitate,

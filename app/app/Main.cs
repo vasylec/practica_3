@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.EMMA;
 using Azure.AI.OpenAI;
-using Microsoft.Reporting.WebForms;
 using Microsoft.Reporting;
 
 
@@ -659,39 +658,11 @@ namespace app
         private void label15_Click(object sender, EventArgs e)
         {
             sidePanelClick();
-            showSpecificPanel(5);
 
-            //string query = @"
-            //                SELECT 
-            //                    C.nume AS Nume,
-            //                    C.prenume AS Prenume,
-            //                    C.adresa AS Adresa,
-            //                    NT.telefon AS Telefon,
-            //                    CASE 
-            //                        WHEN C.adresa LIKE '%(Urban)%' THEN 'Urban'
-            //                        WHEN C.adresa LIKE '%(Rural)%' THEN 'Rural'
-            //                        ELSE 'Necunoscut'
-            //                    END AS TipLocalitate
-            //                FROM Clienti C
-            //                JOIN NumereTelefoane NT ON C.id = NT.clientId
-            //                WHERE NT.nrFix = 1
-            //                ORDER BY TipLocalitate, C.nume;
-            //            ";
+            Form1 f = new Form1();
+            f.Closed += (s, args) => this.Show();
+            f.ShowDialog();
 
-            //Connect con = new Connect();
-            //using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
-            //{
-            //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            //    DataTable dt = new DataTable();
-            //    adapter.Fill(dt);
-
-            //    reportViewer1.LocalReport.ReportPath = "Report1.rdlc";
-            //    reportViewer1.LocalReport.DataSources.Clear();
-            //    reportViewer1.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("Report1.rdlc", dt));
-                
-            //    reportViewer1.RefreshReport();
-
-            //}
         }
     }   
 }
