@@ -427,6 +427,7 @@ namespace app
             panel_remove.Hide();
             panel_tel.Hide();
             panel_report.Hide();
+            panel5.Hide();
 
             switch (n)
             {
@@ -450,6 +451,9 @@ namespace app
                     break;
                 case 5:
                     panel_report.Show();
+                    break;
+                case 6:
+                    panel5.Show();
                     break;
             }
         }
@@ -547,7 +551,7 @@ namespace app
         private void label17_Click(object sender, EventArgs e)
         {
             label29.Show();button6.Show();
-            label31.Hide();label32.Hide();textBox11.Hide();textBox12.Hide();button7.Hide();
+            label31.Hide();label32.Hide();textBox11.Hide();textBox12.Hide();button7.Hide();button8.Hide();
             showSpecificPanel(5);   sidePanelClick();
             string query = "SELECT * FROM Clienti";
 
@@ -600,10 +604,7 @@ namespace app
             }
         }
 
-        private void label30_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label30_MouseEnter(object sender, EventArgs e)
         {
@@ -620,7 +621,7 @@ namespace app
         private void label16_Click(object sender, EventArgs e)
         {
             label29.Hide(); button6.Hide();
-            label31.Show(); label32.Show(); textBox11.Show(); textBox12.Show(); button7.Show();
+            label31.Show(); label32.Show(); textBox11.Show(); textBox12.Show(); button7.Show(); button8.Show();
             dataGridView3.DataSource = null;
             showSpecificPanel(5);sidePanelClick();
         }
@@ -662,7 +663,68 @@ namespace app
             Form1 f = new Form1();
             f.Closed += (s, args) => this.Show();
             f.ShowDialog();
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2(Convert.ToInt32(textBox11.Text), Convert.ToInt32(textBox12.Text));
+            f.ShowDialog();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            sidePanelClick();
+            showSpecificPanel(6);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM dbo.fn_TelefoanePeStrada('{textBox13.Text}')";
+
+            DataTable dt = new DataTable();
+            Connect con = new Connect();
+
+
+            using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                adapter.Fill(dt);
+                dataGridView4.DataSource = dt;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = $"EXEC CopiazaTelefoanePeStrada '{textBox13.Text}'";
+
+                DataTable dt = new DataTable();
+                Connect con = new Connect();
+
+
+                using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Telefoanele au fost copiate cu succes în tabela: TelefoanePeStrada !", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ai întâmpinat o eroare: " + err.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                textBox13.Text = "";
+                dataGridView4.DataSource = null;
+            }
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+            Form3 f = new Form3();
+            f.ShowDialog();
         }
     }   
 }

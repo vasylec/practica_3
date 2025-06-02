@@ -180,6 +180,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_telecomDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_telecomDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db_telecomDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,11 +205,48 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_telecomDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_telecomDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_telecomDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_telecomDataSet9.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -225,6 +272,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +289,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report1.rdlc" />
     <None Include="DataSet_report.xsc">
       <DependentUpon>DataSet_report.xsd</DependentUpon>
@@ -270,6 +324,28 @@
     <None Include="db_telecomDataSet1.xss">
       <DependentUpon>db_telecomDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="db_telecomDataSet10.xsc">
+      <DependentUpon>db_telecomDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet10.xss">
+      <DependentUpon>db_telecomDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet11.xsc">
+      <DependentUpon>db_telecomDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet11.xss">
+      <DependentUpon>db_telecomDataSet11.xsd</DependentUpon>
+    </None>
     <None Include="db_telecomDataSet2.xsc">
       <DependentUpon>db_telecomDataSet2.xsd</DependentUpon>
     </None>
@@ -302,6 +378,61 @@
     </None>
     <None Include="db_telecomDataSet4.xss">
       <DependentUpon>db_telecomDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet5.xsc">
+      <DependentUpon>db_telecomDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet5.xss">
+      <DependentUpon>db_telecomDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet6.xsc">
+      <DependentUpon>db_telecomDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet6.xss">
+      <DependentUpon>db_telecomDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet7.xsc">
+      <DependentUpon>db_telecomDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet7.xss">
+      <DependentUpon>db_telecomDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet8.xsc">
+      <DependentUpon>db_telecomDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet8.xss">
+      <DependentUpon>db_telecomDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet9.xsc">
+      <DependentUpon>db_telecomDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="db_telecomDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_telecomDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_telecomDataSet9.xss">
+      <DependentUpon>db_telecomDataSet9.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

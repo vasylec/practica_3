@@ -34,6 +34,8 @@ CREATE TABLE Clienti (
     dataInregistrare DATE NOT NULL
 );
 
+Select * FROM Clienti
+
 CREATE TABLE NumereTelefoane (
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	clientId INT FOREIGN KEY REFERENCES Clienti(id),
@@ -133,7 +135,7 @@ END
 
 
 
-
+EXEC select_Clienti_By_Luna 
 
 
 
@@ -266,9 +268,24 @@ WHERE NT.nrFix = 1
 GROUP BY C.id, C.nume, NT.telefon
 ORDER BY TotalDurataSecunde DESC;
 
+GO
+
+CREATE PROCEDURE select_Clienti_By_Luna_report @luna INT, @anul INT
+AS
+SELECT TOP 10 
+    C.nume + ' ' + C.prenume AS NumeComplet,
+    SUM(A.durataSecunde) AS TotalDurataSecunde
+FROM Apeluri A
+JOIN NumereTelefoane NT ON A.nrSursa = NT.telefon
+JOIN Clienti C ON NT.clientId = C.id
+WHERE NT.nrFix = 1 
+  AND MONTH(A.dataApel) = @luna
+  AND YEAR(A.dataApel) = @anul
+GROUP BY C.id, C.nume, C.prenume, NT.telefon
+ORDER BY TotalDurataSecunde DESC;
 
 
-
+EXEC select_Clienti_By_Luna_report 05, 2025	
 
 
 GO
@@ -409,13 +426,56 @@ GROUP BY
 
 
 
+GO
+CREATE FUNCTION dbo.fn_TelefoanePeStrada (@strada NVARCHAR(100))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        NT.telefon,
+        C.id AS clientId,
+        C.nume + ' ' + C.prenume AS numeClient,
+        C.adresa,
+        NT.nrFix
+    FROM NumereTelefoane NT
+    JOIN Clienti C ON NT.clientId = C.id
+    WHERE C.adresa LIKE '%' + @strada + '%'
+);
+
+
+SELECT * FROM dbo.fn_TelefoanePeStrada('Lalelelor');
 
 
 
+CREATE TABLE TelefoanePeStrada (
+    telefon NVARCHAR(15),
+    clientId INT,
+    numeClient NVARCHAR(200),
+    adresa NVARCHAR(255),
+    nrFix BIT
+);
 
+EXEC CopiazaTelefoanePeStrada 'Stefan cel Mare'
+SELECT * FROM TelefoanePeStrada
 
+CREATE PROCEDURE CopiazaTelefoanePeStrada
+    @strada NVARCHAR(100)
+AS
+BEGIN
+    INSERT INTO TelefoanePeStrada (telefon, clientId, numeClient, adresa, nrFix)
+    SELECT 
+        NT.telefon,
+        C.id,
+        C.nume + ' ' + C.prenume,
+        C.adresa,
+        NT.nrFix
+    FROM NumereTelefoane NT
+    JOIN Clienti C ON NT.clientId = C.id
+    WHERE C.adresa LIKE '%' + @strada + '%'
+END
 
-
+SELECT * FROM Apeluri
 
 
 

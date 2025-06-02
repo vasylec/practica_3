@@ -35,9 +35,7 @@ namespace app
             d.Fill(dt);
 
 
-            //reportViewer2.ProcessingMode = ProcessingMode.Local;
 
-            //reportViewer2.LocalReport.DataSources.Clear();
             ReportDataSource rds = new ReportDataSource("DataSet1", dt);
 
             reportViewer2.LocalReport.ReportPath = "D:\\Cozma Vasile\\practica_3\\app\\app\\Report1.rdlc";
