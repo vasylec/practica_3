@@ -372,9 +372,17 @@ namespace app
                     Connect con = new Connect();
                     using (SqlCommand cmd = new SqlCommand(query, con.openConnection()))
                     {
-                        cmd.ExecuteNonQuery();
+                        int rowsAffected =  cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Clientul a fost șters cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Numărul dat nu există în baza de date!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
-                    MessageBox.Show("Clientul a fost șters cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -715,7 +723,7 @@ namespace app
                 MessageBox.Show("Ai întâmpinat o eroare: " + err.Message, "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
-            {
+            { 
                 textBox13.Text = "";
                 dataGridView4.DataSource = null;
             }

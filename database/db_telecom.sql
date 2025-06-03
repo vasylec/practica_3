@@ -481,6 +481,86 @@ SELECT * FROM Apeluri
 
 
 
+  
+
+
+
+
+  --CRIPTARE
+
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'parola';
+
+CREATE SYMMETRIC KEY CryptKey
+WITH ALGORITHM = AES_256
+ENCRYPTION BY PASSWORD = 'parola';
+
+
+
+
+OPEN SYMMETRIC KEY CryptKey
+DECRYPTION BY PASSWORD = 'parola';
+UPDATE Angajati
+SET parola = ENCRYPTBYKEY(KEY_GUID('CryptKey'), CAST(parola AS NVARCHAR(100)));
+CLOSE SYMMETRIC KEY CryptKey;
+
+INSERT INTO Angajati VALUES ('Punga', 'Vasile', '34512351367', 'punga@gmail.com', 'Decebal 20/1', 'Administrator', 'vasea', 'pungavasile','Rural')
+SELECT * FROM Angajati
+
+
+--DECRIPTARE
+OPEN SYMMETRIC KEY CryptKey
+DECRYPTION BY PASSWORD = 'parola';
+
+SELECT 
+    id, 
+    nume, 
+    CONVERT(NVARCHAR(100), DECRYPTBYKEY(parola)) AS parola
+FROM Angajati;
+
+CLOSE SYMMETRIC KEY CryptKey;
+
+
+
+
+
+--TRIGGER PENTRU CRIPTARE AUTOMATA
+GO
+CREATE TRIGGER trg_CriptareParola
+ON Angajati
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    OPEN SYMMETRIC KEY CryptKey
+    DECRYPTION BY PASSWORD = 'parola';
+
+    UPDATE A
+    SET A.parola = ENCRYPTBYKEY(KEY_GUID('CryptKey'), CONVERT(NVARCHAR(100), I.parola))
+    FROM Angajati A
+    JOIN inserted I ON A.id = I.id
+    WHERE DATALENGTH(I.parola) < 50; 
+
+    CLOSE SYMMETRIC KEY CryptKey;
+END
+
+
+
+GO
+CREATE PROCEDURE log_in @username NVARCHAR(100), @parola NVARCHAR(100)
+AS
+BEGIN
+	OPEN SYMMETRIC KEY CryptKey
+	DECRYPTION BY PASSWORD = 'parola';
+
+	SELECT id FROM Angajati
+	WHERE CONVERT(NVARCHAR(100), DECRYPTBYKEY(parola)) = @parola AND username = @username
+
+	CLOSE SYMMETRIC KEY CryptKey;
+END
+
+
+EXEC log_in 'Admin', '12345678'
 
 
 
@@ -489,10 +569,9 @@ SELECT * FROM Apeluri
 
 
 
+CREATE PROCEDURE register @nume NVARCHAR(100), @prenume NVARCHAR(100), @idnp NVARCHAR(13), @email NVARCHAR(100), @adresa NVARCHAR(100), @functie NVARCHAR(100), @username NVARCHAR(100), @parola NVARCHAR(100), @localitate NVARCHAR(100)
+AS
+INSERT INTO Angajati VALUES (@nume, @prenume, @idnp, @email, @adresa, @functie, @username, @parola, @localitate)
 
 
-
-
-
-
-
+	SELECT * FROM Angajati
