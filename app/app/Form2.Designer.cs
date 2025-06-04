@@ -50,7 +50,7 @@
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Raport";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 

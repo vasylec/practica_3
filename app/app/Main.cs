@@ -613,7 +613,7 @@ namespace app
         }
 
         
-
+        
         private void label30_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Hand;
@@ -737,4 +737,3 @@ namespace app
     }   
 }
 
-//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

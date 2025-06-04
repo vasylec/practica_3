@@ -111,25 +111,25 @@ END
 
 GO
 CREATE PROCEDURE add_nr 
-    @idnp_client NVARCHAR(13), 
-    @telefon NVARCHAR(15), 
-    @fix BIT
+	@idnp_client NVARCHAR(13), 
+	@telefon NVARCHAR(15), 
+	@fix BIT
 AS
 BEGIN
-    DECLARE @id_client INT;
+	DECLARE @id_client INT;
 
-    SELECT @id_client = id 
-    FROM Clienti 
-    WHERE idnp = @idnp_client;
+	SELECT @id_client = id 
+	FROM Clienti 
+	WHERE idnp = @idnp_client;
 
-    IF @id_client IS NULL
-    BEGIN
-        THROW 50001, 'Clientul cu IDNP-ul specificat nu există.', 1;
-        RETURN;
-    END
+	IF @id_client IS NULL
+	BEGIN
+		THROW 50001, 'Clientul cu IDNP-ul specificat nu există.', 1;
+		RETURN;
+	END
 
-    INSERT INTO NumereTelefoane 
-    VALUES (@id_client, @telefon, GETDATE(), @fix);
+	INSERT INTO NumereTelefoane 
+	VALUES (@id_client, @telefon, GETDATE(), @fix);
 END
 
 
@@ -196,19 +196,19 @@ SELECT c.id AS clientId, c.Nume, c.Prenume, n.telefon, n.nrFix
 FROM NumereTelefoane n
 INNER JOIN Clienti c ON n.clientId = c.id
 WHERE
-    LEN(n.telefon) >= 6 AND
-    ISNUMERIC(n.telefon) = 1 AND
-    (
-        CAST(SUBSTRING(n.telefon, 1, 1) AS INT) +
-        CAST(SUBSTRING(n.telefon, 2, 1) AS INT) +
-        CAST(SUBSTRING(n.telefon, 3, 1) AS INT)
-    )
-    =
-    (
-        CAST(SUBSTRING(n.telefon, LEN(n.telefon)-2, 1) AS INT) +
-        CAST(SUBSTRING(n.telefon, LEN(n.telefon)-1, 1) AS INT) +
-        CAST(SUBSTRING(n.telefon, LEN(n.telefon), 1) AS INT)
-    );
+	LEN(n.telefon) >= 6 AND
+	ISNUMERIC(n.telefon) = 1 AND
+	(
+		CAST(SUBSTRING(n.telefon, 1, 1) AS INT) +
+		CAST(SUBSTRING(n.telefon, 2, 1) AS INT) +
+		CAST(SUBSTRING(n.telefon, 3, 1) AS INT)
+	)
+	=
+	(
+		CAST(SUBSTRING(n.telefon, LEN(n.telefon)-2, 1) AS INT) +
+		CAST(SUBSTRING(n.telefon, LEN(n.telefon)-1, 1) AS INT) +
+		CAST(SUBSTRING(n.telefon, LEN(n.telefon), 1) AS INT)
+	);
 
 
 
@@ -255,16 +255,16 @@ GO
 CREATE PROCEDURE select_Clienti_By_Luna @luna INT, @anul INT
 AS
 SELECT 
-    C.id AS ClientId,
-    C.nume,
-    NT.telefon,
-    SUM(A.durataSecunde) AS TotalDurataSecunde
+	C.id AS ClientId,
+	C.nume,
+	NT.telefon,
+	SUM(A.durataSecunde) AS TotalDurataSecunde
 FROM Apeluri A
 JOIN NumereTelefoane NT ON A.nrSursa = NT.telefon
 JOIN Clienti C ON NT.clientId = C.id
 WHERE NT.nrFix = 1 
-  AND MONTH(A.dataApel) = @luna
-  AND YEAR(A.dataApel) = @anul
+	AND MONTH(A.dataApel) = @luna
+	AND YEAR(A.dataApel) = @anul
 GROUP BY C.id, C.nume, NT.telefon
 ORDER BY TotalDurataSecunde DESC;
 
@@ -273,14 +273,14 @@ GO
 CREATE PROCEDURE select_Clienti_By_Luna_report @luna INT, @anul INT
 AS
 SELECT TOP 10 
-    C.nume + ' ' + C.prenume AS NumeComplet,
-    SUM(A.durataSecunde) AS TotalDurataSecunde
+	C.nume + ' ' + C.prenume AS NumeComplet,
+	SUM(A.durataSecunde) AS TotalDurataSecunde
 FROM Apeluri A
 JOIN NumereTelefoane NT ON A.nrSursa = NT.telefon
 JOIN Clienti C ON NT.clientId = C.id
 WHERE NT.nrFix = 1 
-  AND MONTH(A.dataApel) = @luna
-  AND YEAR(A.dataApel) = @anul
+	AND MONTH(A.dataApel) = @luna
+	AND YEAR(A.dataApel) = @anul
 GROUP BY C.id, C.nume, C.prenume, NT.telefon
 ORDER BY TotalDurataSecunde DESC;
 

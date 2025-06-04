@@ -31,11 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet6 = new app.db_telecomDataSet6();
-            this.clientiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientiTableAdapter = new app.db_telecomDataSet6TableAdapters.ClientiTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenumeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,15 +40,20 @@
             this.adresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInregistrareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localitateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet6 = new app.db_telecomDataSet6();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet7 = new app.db_telecomDataSet7();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nrSursa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nrDestinatie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataApel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.durataSecunde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipApel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apeluriBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.apeluriTableAdapter = new app.db_telecomDataSet7TableAdapters.ApeluriTableAdapter();
+            this.db_telecomDataSet7 = new app.db_telecomDataSet7();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet8 = new app.db_telecomDataSet8();
-            this.angajatiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.angajatiTableAdapter = new app.db_telecomDataSet8TableAdapters.AngajatiTableAdapter();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenumeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,21 +64,19 @@
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parolaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localitateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.angajatiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet8 = new app.db_telecomDataSet8();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet9 = new app.db_telecomDataSet9();
-            this.numereTelefoaneBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.numereTelefoaneTableAdapter = new app.db_telecomDataSet9TableAdapters.NumereTelefoaneTableAdapter();
             this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataInregistrareDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nrFixDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.numereTelefoaneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet9 = new app.db_telecomDataSet9();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet10 = new app.db_telecomDataSet10();
-            this.abonamenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.abonamenteTableAdapter = new app.db_telecomDataSet10TableAdapters.AbonamenteTableAdapter();
             this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numeAbonamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pretLunarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,47 +85,48 @@
             this.minuteInternationaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.smsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriereDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abonamenteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet10 = new app.db_telecomDataSet10();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.db_telecomDataSet11 = new app.db_telecomDataSet11();
-            this.serviciiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.serviciiTableAdapter = new app.db_telecomDataSet11TableAdapters.ServiciiTableAdapter();
             this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.abonamentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataActivareDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nrSursa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nrDestinatie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataApel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.durataSecunde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipApel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serviciiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_telecomDataSet11 = new app.db_telecomDataSet11();
+            this.clientiTableAdapter = new app.db_telecomDataSet6TableAdapters.ClientiTableAdapter();
+            this.apeluriTableAdapter = new app.db_telecomDataSet7TableAdapters.ApeluriTableAdapter();
+            this.angajatiTableAdapter = new app.db_telecomDataSet8TableAdapters.AngajatiTableAdapter();
+            this.numereTelefoaneTableAdapter = new app.db_telecomDataSet9TableAdapters.NumereTelefoaneTableAdapter();
+            this.abonamenteTableAdapter = new app.db_telecomDataSet10TableAdapters.AbonamenteTableAdapter();
+            this.serviciiTableAdapter = new app.db_telecomDataSet11TableAdapters.ServiciiTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet6)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apeluriBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet7)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.angajatiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet8)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numereTelefoaneBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet9)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abonamenteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet10)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciiBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -155,17 +155,6 @@
             this.tabPage1.Text = "Clienti";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Apeluri";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -190,20 +179,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(786, 415);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // db_telecomDataSet6
-            // 
-            this.db_telecomDataSet6.DataSetName = "db_telecomDataSet6";
-            this.db_telecomDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientiBindingSource
-            // 
-            this.clientiBindingSource.DataMember = "Clienti";
-            this.clientiBindingSource.DataSource = this.db_telecomDataSet6;
-            // 
-            // clientiTableAdapter
-            // 
-            this.clientiTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -277,6 +252,27 @@
             this.localitateDataGridViewTextBoxColumn.ReadOnly = true;
             this.localitateDataGridViewTextBoxColumn.Width = 125;
             // 
+            // clientiBindingSource
+            // 
+            this.clientiBindingSource.DataMember = "Clienti";
+            this.clientiBindingSource.DataSource = this.db_telecomDataSet6;
+            // 
+            // db_telecomDataSet6
+            // 
+            this.db_telecomDataSet6.DataSetName = "db_telecomDataSet6";
+            this.db_telecomDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(792, 421);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Apeluri";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -300,19 +296,69 @@
             this.dataGridView2.Size = new System.Drawing.Size(786, 415);
             this.dataGridView2.TabIndex = 0;
             // 
-            // db_telecomDataSet7
+            // idDataGridViewTextBoxColumn1
             // 
-            this.db_telecomDataSet7.DataSetName = "db_telecomDataSet7";
-            this.db_telecomDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // nrSursa
+            // 
+            this.nrSursa.DataPropertyName = "nrSursa";
+            this.nrSursa.HeaderText = "nrSursa";
+            this.nrSursa.MinimumWidth = 6;
+            this.nrSursa.Name = "nrSursa";
+            this.nrSursa.ReadOnly = true;
+            this.nrSursa.Width = 125;
+            // 
+            // nrDestinatie
+            // 
+            this.nrDestinatie.DataPropertyName = "nrDestinatie";
+            this.nrDestinatie.HeaderText = "nrDestinatie";
+            this.nrDestinatie.MinimumWidth = 6;
+            this.nrDestinatie.Name = "nrDestinatie";
+            this.nrDestinatie.ReadOnly = true;
+            this.nrDestinatie.Width = 125;
+            // 
+            // dataApel
+            // 
+            this.dataApel.DataPropertyName = "dataApel";
+            this.dataApel.HeaderText = "dataApel";
+            this.dataApel.MinimumWidth = 6;
+            this.dataApel.Name = "dataApel";
+            this.dataApel.ReadOnly = true;
+            this.dataApel.Width = 125;
+            // 
+            // durataSecunde
+            // 
+            this.durataSecunde.DataPropertyName = "durataSecunde";
+            this.durataSecunde.HeaderText = "durataSecunde";
+            this.durataSecunde.MinimumWidth = 6;
+            this.durataSecunde.Name = "durataSecunde";
+            this.durataSecunde.ReadOnly = true;
+            this.durataSecunde.Width = 125;
+            // 
+            // tipApel
+            // 
+            this.tipApel.DataPropertyName = "tipApel";
+            this.tipApel.HeaderText = "tipApel";
+            this.tipApel.MinimumWidth = 6;
+            this.tipApel.Name = "tipApel";
+            this.tipApel.ReadOnly = true;
+            this.tipApel.Width = 125;
             // 
             // apeluriBindingSource
             // 
             this.apeluriBindingSource.DataMember = "Apeluri";
             this.apeluriBindingSource.DataSource = this.db_telecomDataSet7;
             // 
-            // apeluriTableAdapter
+            // db_telecomDataSet7
             // 
-            this.apeluriTableAdapter.ClearBeforeFill = true;
+            this.db_telecomDataSet7.DataSetName = "db_telecomDataSet7";
+            this.db_telecomDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage3
             // 
@@ -351,20 +397,6 @@
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(786, 415);
             this.dataGridView3.TabIndex = 0;
-            // 
-            // db_telecomDataSet8
-            // 
-            this.db_telecomDataSet8.DataSetName = "db_telecomDataSet8";
-            this.db_telecomDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // angajatiBindingSource
-            // 
-            this.angajatiBindingSource.DataMember = "Angajati";
-            this.angajatiBindingSource.DataSource = this.db_telecomDataSet8;
-            // 
-            // angajatiTableAdapter
-            // 
-            this.angajatiTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn2
             // 
@@ -456,6 +488,16 @@
             this.localitateDataGridViewTextBoxColumn1.ReadOnly = true;
             this.localitateDataGridViewTextBoxColumn1.Width = 125;
             // 
+            // angajatiBindingSource
+            // 
+            this.angajatiBindingSource.DataMember = "Angajati";
+            this.angajatiBindingSource.DataSource = this.db_telecomDataSet8;
+            // 
+            // db_telecomDataSet8
+            // 
+            this.db_telecomDataSet8.DataSetName = "db_telecomDataSet8";
+            this.db_telecomDataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView4);
@@ -488,20 +530,6 @@
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(786, 415);
             this.dataGridView4.TabIndex = 0;
-            // 
-            // db_telecomDataSet9
-            // 
-            this.db_telecomDataSet9.DataSetName = "db_telecomDataSet9";
-            this.db_telecomDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // numereTelefoaneBindingSource
-            // 
-            this.numereTelefoaneBindingSource.DataMember = "NumereTelefoane";
-            this.numereTelefoaneBindingSource.DataSource = this.db_telecomDataSet9;
-            // 
-            // numereTelefoaneTableAdapter
-            // 
-            this.numereTelefoaneTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn3
             // 
@@ -548,6 +576,16 @@
             this.nrFixDataGridViewCheckBoxColumn.ReadOnly = true;
             this.nrFixDataGridViewCheckBoxColumn.Width = 125;
             // 
+            // numereTelefoaneBindingSource
+            // 
+            this.numereTelefoaneBindingSource.DataMember = "NumereTelefoane";
+            this.numereTelefoaneBindingSource.DataSource = this.db_telecomDataSet9;
+            // 
+            // db_telecomDataSet9
+            // 
+            this.db_telecomDataSet9.DataSetName = "db_telecomDataSet9";
+            this.db_telecomDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.dataGridView5);
@@ -583,20 +621,6 @@
             this.dataGridView5.RowTemplate.Height = 24;
             this.dataGridView5.Size = new System.Drawing.Size(786, 415);
             this.dataGridView5.TabIndex = 0;
-            // 
-            // db_telecomDataSet10
-            // 
-            this.db_telecomDataSet10.DataSetName = "db_telecomDataSet10";
-            this.db_telecomDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // abonamenteBindingSource
-            // 
-            this.abonamenteBindingSource.DataMember = "Abonamente";
-            this.abonamenteBindingSource.DataSource = this.db_telecomDataSet10;
-            // 
-            // abonamenteTableAdapter
-            // 
-            this.abonamenteTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn4
             // 
@@ -670,6 +694,16 @@
             this.descriereDataGridViewTextBoxColumn.ReadOnly = true;
             this.descriereDataGridViewTextBoxColumn.Width = 125;
             // 
+            // abonamenteBindingSource
+            // 
+            this.abonamenteBindingSource.DataMember = "Abonamente";
+            this.abonamenteBindingSource.DataSource = this.db_telecomDataSet10;
+            // 
+            // db_telecomDataSet10
+            // 
+            this.db_telecomDataSet10.DataSetName = "db_telecomDataSet10";
+            this.db_telecomDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.dataGridView6);
@@ -702,20 +736,6 @@
             this.dataGridView6.RowTemplate.Height = 24;
             this.dataGridView6.Size = new System.Drawing.Size(786, 415);
             this.dataGridView6.TabIndex = 0;
-            // 
-            // db_telecomDataSet11
-            // 
-            this.db_telecomDataSet11.DataSetName = "db_telecomDataSet11";
-            this.db_telecomDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // serviciiBindingSource
-            // 
-            this.serviciiBindingSource.DataMember = "Servicii";
-            this.serviciiBindingSource.DataSource = this.db_telecomDataSet11;
-            // 
-            // serviciiTableAdapter
-            // 
-            this.serviciiTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn5
             // 
@@ -762,59 +782,39 @@
             this.activDataGridViewCheckBoxColumn.ReadOnly = true;
             this.activDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // idDataGridViewTextBoxColumn1
+            // serviciiBindingSource
             // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Width = 125;
+            this.serviciiBindingSource.DataMember = "Servicii";
+            this.serviciiBindingSource.DataSource = this.db_telecomDataSet11;
             // 
-            // nrSursa
+            // db_telecomDataSet11
             // 
-            this.nrSursa.DataPropertyName = "nrSursa";
-            this.nrSursa.HeaderText = "nrSursa";
-            this.nrSursa.MinimumWidth = 6;
-            this.nrSursa.Name = "nrSursa";
-            this.nrSursa.ReadOnly = true;
-            this.nrSursa.Width = 125;
+            this.db_telecomDataSet11.DataSetName = "db_telecomDataSet11";
+            this.db_telecomDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // nrDestinatie
+            // clientiTableAdapter
             // 
-            this.nrDestinatie.DataPropertyName = "nrDestinatie";
-            this.nrDestinatie.HeaderText = "nrDestinatie";
-            this.nrDestinatie.MinimumWidth = 6;
-            this.nrDestinatie.Name = "nrDestinatie";
-            this.nrDestinatie.ReadOnly = true;
-            this.nrDestinatie.Width = 125;
+            this.clientiTableAdapter.ClearBeforeFill = true;
             // 
-            // dataApel
+            // apeluriTableAdapter
             // 
-            this.dataApel.DataPropertyName = "dataApel";
-            this.dataApel.HeaderText = "dataApel";
-            this.dataApel.MinimumWidth = 6;
-            this.dataApel.Name = "dataApel";
-            this.dataApel.ReadOnly = true;
-            this.dataApel.Width = 125;
+            this.apeluriTableAdapter.ClearBeforeFill = true;
             // 
-            // durataSecunde
+            // angajatiTableAdapter
             // 
-            this.durataSecunde.DataPropertyName = "durataSecunde";
-            this.durataSecunde.HeaderText = "durataSecunde";
-            this.durataSecunde.MinimumWidth = 6;
-            this.durataSecunde.Name = "durataSecunde";
-            this.durataSecunde.ReadOnly = true;
-            this.durataSecunde.Width = 125;
+            this.angajatiTableAdapter.ClearBeforeFill = true;
             // 
-            // tipApel
+            // numereTelefoaneTableAdapter
             // 
-            this.tipApel.DataPropertyName = "tipApel";
-            this.tipApel.HeaderText = "tipApel";
-            this.tipApel.MinimumWidth = 6;
-            this.tipApel.Name = "tipApel";
-            this.tipApel.ReadOnly = true;
-            this.tipApel.Width = 125;
+            this.numereTelefoaneTableAdapter.ClearBeforeFill = true;
+            // 
+            // abonamenteTableAdapter
+            // 
+            this.abonamenteTableAdapter.ClearBeforeFill = true;
+            // 
+            // serviciiTableAdapter
+            // 
+            this.serviciiTableAdapter.ClearBeforeFill = true;
             // 
             // Form3
             // 
@@ -823,33 +823,33 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Baza de Date";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet6)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apeluriBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet7)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.angajatiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet8)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numereTelefoaneBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet9)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abonamenteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet10)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciiBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_telecomDataSet11)).EndInit();
             this.ResumeLayout(false);
 
         }
